@@ -1,0 +1,35 @@
+<div class="modal" id="offer_modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Offer</h5>
+          <button type="button" class="btn-close" id="button_close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <form method="post" action="./send_offer" id="offer_form">
+          <div class="modal-body">
+            <p>Please enter your offer.</p>
+        
+                <input class="border" type="hidden" id="offerTo" name="offerTo" value=<%= hirdetes.user_id %> />
+                <input class="border" type="hidden" id="offerAnn" name="offerAnn" value=<%= hirdetes.id %> />
+               
+                <div class="block">
+                    <label for="offerId"><strong>Offer:</strong></label>
+                    <input class="border" type="number" id="offerId" name="offerId" max="1000000000" min="0" />
+                </div>
+                
+                <div>
+                    <label for="offerDesc"><strong>Message (Optional):</strong></label>
+                    <textarea class="border rounded-0 form-control" id="offerDesc" name="offerDesc" placeholder="Leave a message with your offer..."></textarea>
+                </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="button_yes">Send Offer</button>
+            <button type="button" class="btn btn-secondary" id="button_no" data-bs-dismiss="modal">Changed my mind</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

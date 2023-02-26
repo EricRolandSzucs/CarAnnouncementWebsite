@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <link href="picture.css" rel="stylesheet">
+  <script src="kep_toltes_check.js"></script>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <%- include('./partials/modals/delete_modal.ejs') %>
+    <%- include('./partials/modals/info_delete_modal.ejs') %>
+        
+    <div class="container">
+      <h1 class="my-4" style="color: rgb(0, 0, 0)"> <%= hirdetes.title %>
+        <a class="login btn btn-primary btn-lg me-2" href="./delete_post?id=<%= hirdetes.id %>" style="color: rgba(224,217,217,0.9);background: red;">Delete post</a>
+      </h1>
+
+      <div class="row">
+        <% if(kepek.length != 0) { %>
+          <div class="col-md-8 container" id="div_<%= kepek[0].kep_id %>"><img class="img-fluid ann" alt ="Main picture" src = <%= kepek[0].kep_name %> id="kep_<%= kepek[0].kep_id %>">
+            <button class="delbtn btn kep_delete" value="<%= kepek[0].kep_id %>" id="button_<%= kepek[0].kep_id %>"><img alt="Picture" src='trash3.png'></button>
+          </div>
+        <% } else { %>
+          <div class="col-md-8"><img class="img-fluid" alt="No picture uploaded"></div>
+        <% } %>
+          <div class="col-md-4" style="background:rgb(33,37,41); height: auto;">
+            <h3 class="my-3" style="color: rgb(255,255,255)">Details:</h3>
+            <ul class="list-unstyled">
+              <li style="color: rgb(255,255,255)">Brand: <%= hirdetes.marka %></li>
+              <li style="color: rgb(255,255,255)">Model: <%= hirdetes.model %></li>
+              <li style="color: rgb(255,255,255)">Distance(KM): <%= hirdetes.distance %></li>
+              <li style="color: rgb(255,255,255)">Year: <%= hirdetes.year %></li>
+              <li style="color: rgb(255,255,255)">Power: <%= hirdetes.power %></li>
+              <li style="color: rgb(255,255,255)">City: <%= hirdetes.varos %></li>
+              <li style="color: rgb(255,255,255)">Price: <%= hirdetes.ar %></li>
+              <li style="color: rgb(255,255,255)">Fuel: <%= hirdetes.uzemanyag %></li>
+              <li style="color: rgb(255,255,255)">Date: <%= hirdetes.datum %></li>
+            </ul>
+          </div>
+      </div>
+      <h3 class="my-4">More pictures:</h3>
+      <div class="row">
+      <% kepek.slice(1).forEach((kep) => { %>
+        <div class="col-sm-6 col-md-3 mb-4 container" id="div_<%= kep.kep_id %>">
+          <img class="img-fluid ann" alt="Picture" src = <%= kep.kep_name %> id="kep_<%= kep.kep_id %>">
+          <button style="border-style: none;" class="delbtn btn kep_delete" value="<%= kep.kep_id %>" id="button_<%= kep.kep_id %>"><img alt="Picture" src ='trash.png'></button>
+        </div>
+      <% }) %>
+      </div>
+    </div>
+
+    <%- include('../static/kep_toltes.html') %>
+
+    <script>
+      document.getElementById('hirdetesId').value = '<%- hirdetes.id %>';
+      document.getElementById('hirdetesId').readOnly = true;
+    </script>
+  </body>
+</html>

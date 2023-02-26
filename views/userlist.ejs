@@ -1,0 +1,9 @@
+<tbody id="deleteTable">
+    <% users.forEach((user) => { %>
+    <tr id="tr_<%= user.user_id %>">
+        <td style="text-align: center; vertical-align: middle;"><span style="color: rgb(255, 255, 255);"><%= user.username %></span></td>
+        <td style="text-align: center; vertical-align: middle;"><span style="color: rgb(255, 255, 255);"><%= user.email %></span></td>
+        <td><button class="btn btn-primary btn-lg me-2 buttonsDel" role="button" value="<%= user.user_id %>" style="background: #fd1b0d;border-color: var(--bs-red);margin: 0px;vertical-align: middle;">Delete</button></td>
+    </tr>
+    <% }) %>
+</tbody>

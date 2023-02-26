@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <script src="main_oldal.js"></script>
+    <%- include('./partials/navbar.ejs') %>
+    <%- include('../static/hirdetes_kereses.html') %>
+    <div>
+    <div id="div_minipage">
+      <% hirdetesek.forEach((hirdetes) => { %>
+      <div class="list-container">
+          <p>    
+          <div class="list-group">
+            
+              <div class="card">
+                  <a href='/search_form_id?idSearch=<%= hirdetes.id %>' class="list-group-item-action flex-column align-items-start active">
+                  <div class="card-body" style="background: rgb(33,37,41);">
+                      <h4 class="card-title" style="color: rgb(255,255,255);"><%= hirdetes.title %></h4>
+                      <p class="card-text" style="color: rgb(255,255,255);">Brand: <%= hirdetes.marka %></p>
+                      <p class="card-text" style="color: rgb(255,255,255);">City: <%= hirdetes.varos %></p>
+                      <input type="hidden" value=false id="extra_<%= hirdetes.id %>" />
+                      <div id="div_<%= hirdetes.id %>">
+                        <p class="card-text" style="color: rgb(255,255,255);" id="model_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="distance_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="year_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="power_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="ar_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="uzemanyag_<%= hirdetes.id %>"></p>
+                        <p class="card-text" style="color: rgb(255,255,255);" id="datum_<%= hirdetes.id %>"></p>
+                      </div>
+                  </div>
+                  </a>
+                  <button class="btn btn-primary button_extra" type="button" id="button_extra_<%= hirdetes.id %>" value="<%= hirdetes.id %>" style="background: rgb(41,44,47);border-color: rgba(255,255,255,0);">Click to expand</button>
+              </div>
+            
+            
+          </div>
+          
+          </p>
+        </div>
+          
+      <% }) %>
+    </div>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
+</html>

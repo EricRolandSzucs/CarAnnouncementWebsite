@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <script src="kep_toltes_check_guest.js"></script>
+    <%- include('./partials/navbar.ejs') %>
+    <%- include('./partials/modals/offer_sending_modal.ejs') %>
+        <p>
+            <div class="container">
+                <h1 class="my-4"><%= hirdetes.title %>
+                  <% if (role !== undefined) { %>
+                  <button id="offer_button" class="login btn btn-primary btn-lg me-2" style="color: rgba(224,217,217,0.9);background: rgb(4, 145, 21);">Make offer</button>
+                  <% } %>
+                </h1>
+                <div class="row">
+                    <% if(kepek.length != 0) { %>
+                    <div class="col-md-8" id="div_<%= kepek[0].kep_id %>"><img class="img-fluid" alt ="Main picture" src = <%= kepek[0].kep_name %> id="kep_<%= kepek[0].kep_id %>">
+                    </div>
+                    <% } else { %>
+                    <div class="col-md-8"><img class="img-fluid" alt="No picture uploaded"></div>
+                    <% } %>
+                    <div class="col-md-4" style="background:rgb(33,37,41); height: auto;">
+                        <h3 class="my-3" style="color: rgb(255,255,255)">Details:</h3>
+                        <ul class="list-unstyled">
+                            <li style="color: rgb(255,255,255)">Brand: <%= hirdetes.marka %></li>
+                            <li style="color: rgb(255,255,255)">Model: <%= hirdetes.model %></li>
+                            <li style="color: rgb(255,255,255)">Distance(KM): <%= hirdetes.distance %></li>
+                            <li style="color: rgb(255,255,255)">Year: <%= hirdetes.year %></li>
+                            <li style="color: rgb(255,255,255)">Power: <%= hirdetes.power %></li>
+                            <li style="color: rgb(255,255,255)">City: <%= hirdetes.varos %></li>
+                            <li id="hirdetes_ar" value=<%= hirdetes.ar %> style="color: rgb(255,255,255)">Price: <%= hirdetes.ar %></li>
+                            <li style="color: rgb(255,255,255)">Fuel: <%= hirdetes.uzemanyag %></li>
+                            <li style="color: rgb(255,255,255)">Date: <%= hirdetes.datum %></li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="my-4">More pictures:</h3>
+                <div class="row">
+                <% kepek.slice(1).forEach((kep) => { %>
+                    <div class="col-sm-6 col-md-3 mb-4" id="div_<%= kep.kep_id %>">
+                      <img class="img-fluid" alt="picture" src = <%= kep.kep_name %> id="kep_<%= kep.kep_id %>">
+                    </div>
+                <% }) %>
+                </div>
+            </div>
+        </p>
+  </body>
+</html>

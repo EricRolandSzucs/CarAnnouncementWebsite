@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .container img.ann {
+    width: 100%;
+    height: auto;
+  }
+  
+  .container .delbtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    font-size: 16px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .container .delbtn:hover {
+    background-color: white
+  }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Announcement Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <script src="main_oldal.js"></script>
+    <form class="form-horizontal" method="post" action="./search_form" id="search_form">
+    <div class="d-lg-flex justify-content-lg-center">
+        <section class="py-4 py-xl-5">
+            <div class="container text-start">
+                <div class="text-white bg-dark border rounded border-0 p-4 p-md-5" style="width: 550px;height: auto;">
+                    <h2 class="fw-bold text-white mb-3">Search for an announcement</h2>
+                    
+                        <div class="d-inline form-group mb-3">
+                            <div class="d-flex my-auto col-sm-10"><label class="form-label d-inline col-sm-2" for="markaSearch" style="padding: 4px;border: 1px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>Brand</strong></label>
+                                <div class="d-inline-block"><input id="markaSearch" class="border rounded-0 form-control d-lg-flex inputS" type="text" name="markaSearch" style="width: 300px;" pattern="^[A-Z]{1}[a-zA-Z]+$" /></div>
+                            </div>
+                            <div class="d-flex my-auto col-sm-10"><label class="form-label d-inline col-sm-2" for="modelSearch" style="padding: 4px;border: 1px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>Model</strong></label>
+                                <div class="d-inline-block"><input id="modelSearch" class="border rounded-0 form-control d-lg-flex inputS" type="text" name="modelSearch" style="width: 300px;" pattern="^[A-Z]{1}[a-zA-Z0-9 ]+$" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="distanceMin" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Minimum distance</strong></label>
+                                <div class="d-inline-block"><input id="distanceMin" class="border rounded-0 form-control inputMin" type="number" name="distanceMin" style="width: 252px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="distanceMax" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Maximum distance</strong></label>
+                                <div class="d-inline-block"><input id="distanceMax" class="border rounded-0 form-control inputMax" type="number" name="distanceMax" style="width: 249px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="yearMin" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Minimum year</strong></label>
+                                <div class="d-inline-block"><input id="yearMin" class="border rounded-0 form-control inputMin" type="number" name="yearMin" style="width: 252px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="yearMax" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Maximum year</strong></label>
+                                <div class="d-inline-block"><input id="yearMax" class="border rounded-0 form-control inputMax" type="number" name="yearMax" style="width: 249px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="powerMin" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Minimum power</strong></label>
+                                <div class="d-inline-block"><input id="powerMin" class="border rounded-0 form-control inputMin" type="number" name="powerMin" style="width: 252px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="powerMax" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Maximum power</strong></label>
+                                <div class="d-inline-block"><input id="powerMax" class="border rounded-0 form-control inputMax" type="number" name="powerMax" style="width: 249px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex my-auto col-sm-10"><label class="form-label d-inline col-sm-2" for="fuelSearch" style="padding: 4px;border: 1px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>Fuel</strong></label>
+                                <div class="d-inline-block"><input id="fuelSearch" class="border rounded-0 form-control d-lg-flex inputS" type="text" name="fuelSearch" style="width: 300px;" pattern="^[A-Z]{1}[a-z]+$" onsubmit="if(this == ''){$this.val('%');}"/></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-inline col-sm-2" for="varosSearch" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>City</strong></label>
+                                <div class="d-inline-block"><input id="varosSearch" class="border rounded-0 form-control d-lg-flex inputS" type="text" name="varosSearch" style="width: 300px;" pattern="^[A-Z]{1}[a-z]+$" onsubmit="if(this == ''){$this.val('%');}"/></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="arMin" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Minimum price</strong></label>
+                                <div class="d-inline-block"><input id="arMin" class="border rounded-0 form-control inputMin" type="number" name="arMin" style="width: 252px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            <div class="d-flex col-sm-10"><label class="form-label d-lg-flex col-sm-2" for="arMax" style="padding: 4px;border: 2px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: auto;"><strong>Maximum price</strong></label>
+                                <div class="d-inline-block"><input id="arMax" class="border rounded-0 form-control inputMax" type="number" name="arMax" style="width: 249px;" pattern="^[A-Z]{1}[a-z]+$" max="1000000000" min="0" /></div>
+                            </div>
+                            
+                        </div>
+                        <div class="d-inline-block my-3" id="butt"><button class="btn btn-primary btn-lg me-2" type="submit" id="sub">Search</button></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="d-lg-flex justify-content-lg-center">
+        <section class="py-4 py-xl-5">
+            <div class="container text-start">
+                <div class="text-white bg-dark border rounded border-0 p-4 p-md-5" style="width: 550px;height: auto;">
+                    <h2 class="fw-bold text-white mb-3">Filters</h2>
+                        <div class="d-inline form-group mb-3">
+                            <div class="d-flex my-auto col-sm-10"><label class="form-label d-inline col-sm-2" for="filter_search" style="padding: 4px;border: 1px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>Sort By</strong></label>
+                                <div class="d-inline-block">
+                                    <select class="border rounded-0 form-select" id="filter_search" name="filter_search">
+                                        <option value="datum" selected>Date</option>
+                                        <option value="title">Title</option>
+                                        <option value="marka">Brand</option>
+                                        <option value="model">Model</option>
+                                        <option value="distance">Distance</option>
+                                        <option value="year">Year</option>
+                                        <option value="power">Power</option>
+                                        <option value="fuel">Fuel</option>
+                                        <option value="varos">City</option>
+                                        <option value="ar">Price</option>
+                                    </select></div>
+                            </div>
+                            <div class="d-flex my-auto col-sm-10"><label class="form-label d-inline col-sm-2" for="markaSearch" style="padding: 4px;border: 1px solid var(--bs-red);border-top-width: 3.4px;border-top-color: rgb(255, 255, 255);border-right-color: rgb(255, 255, 255);border-bottom-width: 3px;border-bottom-color: rgb(255, 255, 255);border-left: 3px solid rgb(255, 255, 255);width: 77.7px;"><strong>Order</strong></label>
+                                <div class="d-inline-block"><select class="border rounded-0 form-select" name="filter_order" id="filter_order">
+                                        <option value="asc">Ascending</option>
+                                        <option value="des">Descending</option>
+                                    </select></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>

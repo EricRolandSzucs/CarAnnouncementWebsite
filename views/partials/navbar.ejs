@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button" style="background: rgb(34, 34, 34);padding-bottom: 0px;">
+  <div class="container">
+    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+      <span class="visually-hidden">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div>
+      <a class="navbar-brand" href="#">
+        <span style="color: white"><strong>Car Commerce</strong></span> 
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+      <ul class="navbar-nav nav-right">
+        <li class="nav-item"><a class="nav-link active" href="./" style="color: rgba(224,217,217,0.9);"><strong>Home </strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="./post_form" style="color: rgba(224,217,217,0.9);"><strong>Upload</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="./hirdetes_id_display" style="color: rgba(224,217,217,0.9);"><strong>Search By ID</strong></a></li>
+        <% if(role === 'admin') { %>
+          <li class="nav-item"><a class="nav-link" href="./user_manage" style="color: rgba(224,217,217,0.9);"><strong>Manage Users</strong></a></li>
+        <% } %>
+      </ul>
+      <p class="ms-auto navbar-text actions">
+        <% if(username === undefined) { %>
+          <a class="login btn btn-primary btn-lg me-2" href="./login_display" style="color: rgba(224,217,217,0.9);">Log In</a>
+          <a class="btn login btn-primary btn-lg me-2" role="button" href="./registration_display" style="color: rgba(224,217,217,0.9);">Sign Up</a>
+        <% } else { %>
+          <a class="login" style="color: rgba(224,217,217,0.9);" href="./offers_display"><img id="offerIcon" src="Offers4.png" alt="Offer"></a>
+          <a class="login" style="color: rgba(224,217,217,0.9);padding: 10px"><strong><%= username %></strong></a>
+          <a class="btn login btn-primary btn-lg me-2" href="./user_logout" style="color: rgba(224,217,217,0.9);">Log Out</a>
+        <% } %>
+      </p>
+    </div>
+  </div>
+</nav>
